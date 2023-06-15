@@ -71,6 +71,121 @@ function redirigir($url) {
             <i class="fas fa-bars" id="btn_open"></i>
         </div>
         <span href="index.php" style="margin-left: 60px; font-size: 30px; font-family:bold; cursor:pointer;">MyEducacin</span>
+        <input id="buscar" class="buscar" placeholder="buscar...">
+    <button id="btn" class="btn">buscar</button>
+    <div id="panel" class="panel"></div>
+
+    <script>
+        // Objetos de ejemplo
+// Objetos de ejemplo
+var objetos = [
+  { nombre: "Chat", link: "http://127.0.0.1:8000" },
+  { nombre: "Acerca de", link: "" },
+  { nombre: "Juego", link: "\game.html" }
+];
+
+// Función para buscar objetos
+function buscarObjetos() {
+  var buscar = document.getElementById("buscar").value.toLowerCase();
+  var resultados = objetos.filter(function(objeto) {
+    return objeto.nombre.toLowerCase().includes(buscar) || objeto.link.toLowerCase().includes(buscar);
+  });
+
+  // Mostrar los resultados en el panel
+  var panel = document.getElementById("panel");
+  panel.innerHTML = "";
+  if (resultados.length > 0) {
+    for (var i = 0; i < resultados.length; i++) {
+      var objeto = resultados[i];
+      var nombre = document.createElement("h3");
+      nombre.textContent = objeto.nombre;
+      panel.appendChild(nombre);
+
+      var link = document.createElement("a");
+      link.href = objeto.link;
+      link.textContent = "Enlace";
+      panel.appendChild(link);
+
+      var separador = document.createElement("hr");
+      panel.appendChild(separador);
+    }
+  } else {
+    panel.textContent = "No se encontraron resultados.";
+  }
+}
+
+// Evento click del botón de búsqueda
+var btn = document.getElementById("btn");
+btn.addEventListener("click", buscarObjetos);
+
+
+    </script>
+  
+  <style>
+    .buscar {
+    margin-left: 50px;
+    width: 500px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    }
+
+    .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+
+    .btn:hover {
+    background-color: #45a049;
+    }
+
+   
+
+    .panel {
+    margin-bottom: -60px;
+    margin-left: -580px;
+    margin-top: 20px;
+}
+
+.panel ul {
+    
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.panel li {
+    
+    margin-bottom: 10px;
+}
+
+.panel h3 {
+    
+    margin: 0;
+}
+
+.panel a {
+    
+    color: #0066cc;
+    text-decoration: none;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.panel a:hover {
+    
+    color: #ff3366;
+    text-decoration: underline;
+}
+
+  </style>
+
     </header>
 
     <div class="menu__side" id="menu_side" style="background: #3c1053;">
@@ -87,7 +202,7 @@ function redirigir($url) {
                 </div>
             </a>
 
-            <a href="#">
+            <a href="http://127.0.0.1:8000">
                 <div class="option">
                     <i title="chat"></i>
                     <h4>Chat</h4>
