@@ -135,8 +135,8 @@ btn.addEventListener("click", buscarObjetos);
     .btn {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: Blueviolet;
+    color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
